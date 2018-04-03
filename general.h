@@ -1,3 +1,5 @@
+//created by ylink 
+//E-mail: lfs@live.com
 #pragma once
 struct item
 {
