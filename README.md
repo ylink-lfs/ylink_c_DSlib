@@ -2,5 +2,5 @@
 This library aims to help myself to complete data structure exercises in C without creating same wheels every time.
 
 18/04/03  
-create project
-upload general.h
+1. create project
+2. upload general.h
