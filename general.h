@@ -1,4 +1,4 @@
-//created by ylink 
+//created by ylink
 //E-mail: lfs@live.com
 #pragma once
 struct item
@@ -9,3 +9,5 @@ struct item
 typedef struct item Item;
 
 #define ElementType int
+
+#define MAXSIZE 100

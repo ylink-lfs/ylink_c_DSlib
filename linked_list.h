@@ -4,38 +4,38 @@
 #include <stdbool.h>
 #include "general.h"
 
-struct Node
+struct Llist_Node
 {
 	ElementType data;
-	struct Node* next;
+	struct Llist_Node* next;
 };
 
-typedef struct Node node;
+typedef struct Llist_Node llist_node;
 
-struct List_Head
+struct Llist_Head
 {
 	int counter;
-	node* next;
+	llist_node* next;
 };
 
-typedef struct List_Head list_head;
+typedef struct Llist_Head llist_head;
 
 //If list head points to NULL, create head. If list head exists, wipe list to 0 element
-list_head* initialize_list(list_head* plist);
+llist_head* initialize_llist(llist_head* pllist);
 
-bool list_is_empty(list_head* plist);
+bool llist_is_empty(llist_head* pllist);
 
-bool is_last_node(list_head* plist, node* pnode);
+bool is_last_llist_node(llist_head* pllist, llist_node* pnode);
 
-bool delete_node(list_head* plist, ElementType element);
+bool delete_llist_node(llist_head* pllist, ElementType element);
 
-node* find_previous(list_head* plist, node* pnode);
+llist_node* find_previous(llist_head* pllist, llist_node* pnode);
 
 //this function guarantees that after insertion, the given element is in the given position
-bool insertion(list_head* plist, ElementType element, int position);
+bool llist_insertion(llist_head* pllist, ElementType element, int position);
 
-void wipe_list(list_head* plist);
+void wipe_llist(llist_head* pllist);
 
-node* get_first_node(list_head* plist);
+llist_node* get_first_llist_node(llist_head* pllist);
 
-void delete_first_node(list_head* plist);
+void delete_first_llist_node(llist_head* pllist);

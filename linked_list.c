@@ -3,56 +3,56 @@
 #include <stdlib.h>
 #include "linked_list.h"
 
-list_head* initialize_list(list_head* plist)
+llist_head* initialize_llist(llist_head* pllist)
 {
-	if (!plist)
+	if (!pllist)
 	{
-		plist = (list_head*)malloc(sizeof(list_head));
-		plist->counter = 0;
-		plist->next = NULL;
+		pllist = (llist_head*)malloc(sizeof(llist_head));
+		pllist->counter = 0;
+		pllist->next = NULL;
 	}
-	else if (plist->next == NULL)
+	else if (pllist->next == NULL)
 	{
-		plist->counter = 0;
+		pllist->counter = 0;
 	}
 	else
 	{
-		node* current = plist->next;
-		node* temp;
+		llist_node* current = pllist->next;
+		llist_node* temp;
 		while (current)
 		{
 			temp = current;
 			current = current->next;
 			free(temp);
 		}
-		plist->next = NULL;
-		plist->counter = 0;
+		pllist->next = NULL;
+		pllist->counter = 0;
 	}
-	return plist;
+	return pllist;
 }
 
-bool list_is_empty(list_head* plist)
+bool llist_is_empty(llist_head* pllist)
 {
-	//assume plist is not NULL
-	return plist->next ? false : true;
+	//assume pllist is not NULL
+	return pllist->next ? false : true;
 }
 
-bool is_last_node(list_head* plist, node* pnode)
+bool is_last_llist_node(llist_head* pllist, llist_node* pllist_node)
 {
-	//assume plist is not NULL
-	node* current = plist->next;
+	//assume pllist is not NULL
+	llist_node* current = pllist->next;
 	while (current->next)
 	{
 		current = current->next;
 	}
-	return current == pnode ? true : false;
+	return current == pllist_node ? true : false;
 }
 
-bool delete_node(list_head* plist, ElementType x)
+bool delete_llist_node(llist_head* pllist, ElementType x)
 {
-	node* current = plist->next;
-	node* pre;
-	node* temp;
+	llist_node* current = pllist->next;
+	llist_node* pre;
+	llist_node* temp;
 	while (current && current->data != x)
 	{
 		current = current->next;
@@ -62,30 +62,30 @@ bool delete_node(list_head* plist, ElementType x)
 	{
 		return false;
 	}
-	else if (plist->next == current)
+	else if (pllist->next == current)
 	{
 		temp = current;
-		plist->next = current->next;
+		pllist->next = current->next;
 		free(current);
-		plist->counter--;
+		pllist->counter--;
 		return true;
 	}
 	else
 	{
-		pre = find_previous(plist, current);
+		pre = find_previous(pllist, current);
 		temp = current;
 		pre->next = current->next;
 		free(current);
-		plist->counter--;
+		pllist->counter--;
 		return true;
 	}
 }
 
-node* find_previous(list_head* plist, node* pnode)
+llist_node* find_previous(llist_head* pllist, llist_node* pllist_node)
 {
-	//assume plist is not NULL
-	node* current = plist->next;
-	while (current && current->next != pnode)
+	//assume pllist is not NULL
+	llist_node* current = pllist->next;
+	while (current && current->next != pllist_node)
 	{
 		current = current->next;
 	}
@@ -93,81 +93,81 @@ node* find_previous(list_head* plist, node* pnode)
 }
 
 //this function guarantees that after insertion, the given element is in the given position
-bool insertion(list_head* plist, ElementType x, int position)
+bool llist_insertion(llist_head* pllist, ElementType x, int position)
 {
-	//assume plist is not NULL
-	node* current;
-	node* pre;
-	node* pnew;
+	//assume pllist is not NULL
+	llist_node* current;
+	llist_node* pre;
+	llist_node* pnew;
 	int i;
-	if (position <= 0 || position > plist->counter + 1)
+	if (position <= 0 || position > pllist->counter + 1)
 	{
 		return false;
 	}
 	else
 	{
-		pnew = (node*)malloc(sizeof(node));
+		pnew = (llist_node*)malloc(sizeof(llist_node));
 		pnew->data = x;
 		pnew->next = NULL;
-		current = plist->next;
+		current = pllist->next;
 		for (i = 1; i < position; i++)
 		{
 			current = current->next;
 		}
-		if (current == plist->next)
+		if (current == pllist->next)
 		{
 			pnew->next = current;
-			plist->next = pnew;
+			pllist->next = pnew;
 		}
 		else
 		{
-			pre = find_previous(plist, current);
+			pre = find_previous(pllist, current);
 			pnew->next = current;
 			pre->next = pnew;
 		}
-		plist->counter++;
+		pllist->counter++;
 		return true;
 	}
 }
 
-void wipe_list(list_head* plist)
+void wipe_llist(llist_head* pllist)
 {
-	if (!plist)
+	if (!pllist)
 	{
 		;
 	}
-	else if (plist->next == NULL)
+	else if (pllist->next == NULL)
 	{
-		free(plist);
+		free(pllist);
 	}
 	else
 	{
-		node* current = plist->next;
-		node* temp;
+		llist_node* current = pllist->next;
+		llist_node* temp;
 		while (current)
 		{
 			temp = current;
 			current = current->next;
 			free(temp);
 		}
-		free(plist);
+		free(pllist);
 	}
 	return;
 }
 
-node* get_first_node(list_head* plist)
+llist_node* get_first_llist_node(llist_head* pllist)
 {
-	//assume plist is not NULL
-	return plist->next;
+	//assume pllist is not NULL
+	return pllist->next;
 }
 
-void delete_first_node(list_head* plist)
+void delete_first_llist_node(llist_head* pllist)
 {
-	node* temp;
-	node* current = plist->next;
+	llist_node* temp;
+	llist_node* current = pllist->next;
 	temp = current;
-	plist->next = current->next;
+	pllist->next = current->next;
 	free(current);
-	plist->counter--;
+	pllist->counter--;
 	return;
 }
