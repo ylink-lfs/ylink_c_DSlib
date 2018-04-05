@@ -16,3 +16,4 @@ To use this lib, download the specitic .c, .h and general.h. Then change the ite
 4. upload linked stack ADTs (passed test in VC++ successfully)
 5. upload sequential stack ADTs (passed test in VC++ successfully)
 6. upload linked queue ADTs (passed test in VC++ successfully)
+7. upload sequential queue ADTs (passed test in VC++ successfully)
