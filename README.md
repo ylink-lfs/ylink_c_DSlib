@@ -15,3 +15,4 @@ To use this lib, download the specitic .c, .h and general.h. Then change the ite
 3. update linked list ADTs (changed interface names to aviod future conflict)
 4. upload linked stack ADTs (passed test in VC++ successfully)
 5. upload sequential stack ADTs (passed test in VC++ successfully)
+6. upload linked queue ADTs (passed test in VC++ successfully)
