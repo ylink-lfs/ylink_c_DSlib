@@ -19,4 +19,4 @@ To use this lib, download the specitic .c, .h and general.h. Then change the ite
 7. upload sequential queue ADTs (passed test in VC++ successfully)
 
 18/04/09
-1. upload BST ADTs (without test, do it later time)
+1. upload BST ADTs (passed test)
