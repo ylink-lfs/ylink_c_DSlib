@@ -1,7 +1,6 @@
 //created by ylink
 //E-mail: lfs@live.com
 #pragma once
-#include <stdbool.h>
 #include "general.h"
 
 //use direct names, and try to write compatible code for later tree ADTs
