@@ -41,12 +41,11 @@ BST_node* find_max(BST_node* root)
 
 BST_node* BST_tree_insertion(BST_node* root, ElementType elem)
 {
-	BST_node* pnew = (BST_node*)malloc(sizeof(BST_node));
-	pnew->data = elem;
-	pnew->left_branch = pnew->right_branch = NULL;
-
 	if(!root)
 	{
+		BST_node* pnew = (BST_node*)malloc(sizeof(BST_node));
+		pnew->data = elem;
+		pnew->left_branch = pnew->right_branch = NULL;
 		root = pnew;
 	}
 	else if (root->data > elem)
