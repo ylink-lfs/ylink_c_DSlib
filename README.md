@@ -20,3 +20,7 @@ To use this lib, download the specitic .c, .h and general.h. Then change the ite
 
 18/04/09
 1. upload BST ADTs (passed test)
+
+18/04/10
+1. update BST ADTs (optimize insertion interface, cost less possible space)
+2. upload AVL ADTs (passed test)
